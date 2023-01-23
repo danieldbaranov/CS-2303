@@ -8,19 +8,23 @@ float calcGrades(int, int[]);
 
 int main (int argc, const char* argv[]) {
 
-  int all_grades[MAX_GRADES]; // Define and allocate the array
-  int i = 0;
+  int all_grades[MAX_GRADES] = {}; // Define and allocate the array
 
   if (argc < 2) { // Check that there was an entry
     printf("Must enter a number on the command line!\n");
     return 1; // Indicate failure
   }
 
-  while(*argv[i + 1] != '\0' || i >= MAX_GRADES){
-    all_grades[i] = atoi(argv[i + 1]);
+  if (argc > MAX_GRADES + 2){
+    printf("Can only enter %d number(s)!\n", MAX_GRADES + 1);
+    return 1; // Indicate failure
   }
 
-  printf("AVG GRADE: %f\n", calcGrades(i + 1, all_grades));
+  for(int i = 1; i < argc; i++){
+    all_grades[i-1] = atoi(argv[i]);
+  }
+
+  printf("AVG GRADE: %f\n", calcGrades(argc - 1, all_grades));
   return 0; // Indicate success!
 }
 
