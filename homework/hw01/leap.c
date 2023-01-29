@@ -24,7 +24,7 @@ int main (int argc, const char* argv[]) {
   n = atoi(argv[1]); // Get string from command line; convert to int
 
   if (n < 1752){
-    printf("This program cannot test the year %d.\nIt only handles the year 1752 and after\n", n);
+    printf("This program cannot test the year %d.\nIt only handles the year 1752 and after\n", n); //“Check if this year is within the range which this program is designed to handle”
     return 1;
   }
 
