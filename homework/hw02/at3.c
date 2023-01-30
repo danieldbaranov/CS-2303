@@ -8,30 +8,38 @@
 #include "array_sort.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /** Main program for demonstrating arrays. It fills them and prints them.
  * @return 0, Indicating success.
  */
-#
-int main(int argc, char argv[]) {
-  int size = atoi(argv[2]);
-  int maximum = atoi(argv[1]);
-  int a[size + 1];
 
-/**
-  if(sizeof(argv) < 3){
+int main(int argc, char argv[]) {
+
+
+  //checks to see If the number of inputs is correct
+  if(argc < 3){
     printf("You are missing the required parameters!\n");
     return 1;
   }
-**/
+
+  int size = atoi(&argv[2]);
+  printf("size: %d\n", size);
+  int maximum = atoi(&argv[1]);
+  int a[size + 1];
+
+
+
+
+
 
   fill_random_array(a, size, maximum);
 
-  // Fills the Array with the doubles from input
+  // prints the random array before sorting
   printf("Before Sorting:\n");
   print_int_array(a, size);
 
-  // Now print it out
+  // printing it after sorting
   printf("\nAfter Sorting:\n");
   sort_int_array(size, a);
   print_int_array(a, size);
