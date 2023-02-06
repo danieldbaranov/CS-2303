@@ -9,6 +9,7 @@ mystring.o: mystring.c mystring.h
 
 clean:
 	rm -f mystring.o ctest.o ctest
+	rm -r -f html
 
 docs:
 	doxygen

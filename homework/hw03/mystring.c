@@ -61,3 +61,47 @@ char *mystrcpy(char *dest, const char *src){
   dest[i] = '\0';
   return dest;
 }
+
+char *mystrcat(char *dest, const char *src) {
+  int dest_len = strlen(dest);
+  int i;
+
+  for (i = 0; src[i] != '\0'; i++)
+    dest[dest_len + i] = src[i];
+  dest[dest_len + i] = '\0';
+
+  return dest;
+}
+
+char *mystrncat(char *dest, const char *src, int n){
+  int dest_len = mystrlen(dest);
+  int i;
+
+  for (i = 0 ; i < n && src[i] != '\0' ; i++){
+    dest[dest_len + i] = src[i];
+  }
+    dest[dest_len + i] = '\0';
+
+  return dest;
+}
+
+char *mystrncpy(char *dest, const char *src, int n) {
+  int i;
+
+  for (i = 0; i < n && src[i] != '\0'; i++)
+    dest[i] = src[i];
+  for ( ; i < n; i++)
+    dest[i] = '\0';
+
+  return dest;
+}
+
+char *mystrndup(const char *src, int n) {
+  char *dest = malloc(n + 1);
+  if (dest == NULL) return NULL;
+
+  mystrncpy(dest, src, n);
+  dest[n] = '\0';
+
+  return dest;
+}
